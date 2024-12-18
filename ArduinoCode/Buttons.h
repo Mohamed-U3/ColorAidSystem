@@ -28,18 +28,18 @@
 
 void setupbuttons()
 {
-  pinMode(DOWN_BUTTON_PIN ,INPUT);
-  pinMode(LEFT_BUTTON_PIN ,INPUT);
-  pinMode(RIGHT_BUTTON_PIN,INPUT);
-  pinMode(UP_BUTTON_PIN   ,INPUT);
+  pinMode(DOWN_BUTTON_PIN ,INPUT_PULLUP);
+  pinMode(LEFT_BUTTON_PIN ,INPUT_PULLUP);
+  pinMode(RIGHT_BUTTON_PIN,INPUT_PULLUP);
+  pinMode(UP_BUTTON_PIN   ,INPUT_PULLUP);
 }
 
 char pressedButton()
 {
-  if     (digitalRead(DOWN_BUTTON_PIN)  == HIGH)  return DOWN_BUTTON_PIN;
-  else if(digitalRead(LEFT_BUTTON_PIN)  == HIGH)  return LEFT_BUTTON_PIN;
-  else if(digitalRead(RIGHT_BUTTON_PIN) == HIGH)  return RIGHT_BUTTON_PIN;
-  else if(digitalRead(UP_BUTTON_PIN)    == HIGH)  return UP_BUTTON_PIN;
+  if     (digitalRead(DOWN_BUTTON_PIN)  == LOW)  return DOWN_BUTTON_PIN;
+  else if(digitalRead(LEFT_BUTTON_PIN)  == LOW)  return LEFT_BUTTON_PIN;
+  else if(digitalRead(RIGHT_BUTTON_PIN) == LOW)  return RIGHT_BUTTON_PIN;
+  else if(digitalRead(UP_BUTTON_PIN)    == LOW)  return UP_BUTTON_PIN;
   else return -1;
 }
 

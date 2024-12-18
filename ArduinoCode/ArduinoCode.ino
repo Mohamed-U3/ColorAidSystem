@@ -8,11 +8,11 @@ void setup()
   Serial.begin(9600);
   setupColorDetector();
   setupOled();
+  setupbuttons();
 }
 
 void loop()
 {
   loopColorDetector();
   loopPages();
-  delay(500);
 }
