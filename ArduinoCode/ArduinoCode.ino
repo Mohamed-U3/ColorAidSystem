@@ -1,16 +1,16 @@
+#include "Global.h"
 #include "ColorDetection.h"
 #include "OLED.h"
 #include "Buttons.h"
-#include "Global.h"
 #include "audio.h"
 
-//#define COLOR_NAME_VARIABLE Global_Color_Name
+
+#define COLOR_NAME_VARIABLE Global_Color_Name
 
 void setup()
 {
   Serial.begin(9600);
   setupColorDetector();
-//  setupOled();
   setupOLED();
   setupbuttons();
   setupAudio();
@@ -19,22 +19,27 @@ void setup()
 void loop()
 {
   loopColorDetector();
-//  loopPages();
   loopOLED();
+  loopGlobal();
+}
+
+void loopGlobal()
+{
   if (pressedButton() != -1)
   {
     PlayAudio(3);
-    if (COLOR_NAME_VARIABLE == "Red")     PlayAudio(4);
-    if (COLOR_NAME_VARIABLE == "Green")   PlayAudio(5);
-    if (COLOR_NAME_VARIABLE == "Blue")    PlayAudio(6);
-    if (COLOR_NAME_VARIABLE == "Yellow")  PlayAudio(7);
-    if (COLOR_NAME_VARIABLE == "Cyan")    PlayAudio(8);
-    if (COLOR_NAME_VARIABLE == "Magenta") PlayAudio(9);
-    if (COLOR_NAME_VARIABLE == "White")   PlayAudio(10);
-    if (COLOR_NAME_VARIABLE == "Black")   PlayAudio(11);
-    if (COLOR_NAME_VARIABLE == "Gray")    PlayAudio(12);
-    if (COLOR_NAME_VARIABLE == "Orange")  PlayAudio(13);
-    if (COLOR_NAME_VARIABLE == "Pink")    PlayAudio(14);
+    if (Global_Color_Name == "Red")           PlayAudio(4);
+    else if (Global_Color_Name == "Green")    PlayAudio(5);
+    else if (Global_Color_Name == "Blue")     PlayAudio(6);
+    else if (Global_Color_Name == "Yellow")   PlayAudio(7);
+    else if (Global_Color_Name == "Cyan")     PlayAudio(8);
+    else if (Global_Color_Name == "Magenta")  PlayAudio(9);
+    else if (Global_Color_Name == "White")    PlayAudio(10);
+    else if (Global_Color_Name == "Black")    PlayAudio(11);
+    else if (Global_Color_Name == "Gray")     PlayAudio(12);
+    else if (Global_Color_Name == "Orange")   PlayAudio(13);
+    else if (Global_Color_Name == "Pink")     PlayAudio(14);
+    delay(500);
     PlayAudio(15);
   }
 }

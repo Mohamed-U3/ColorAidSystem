@@ -16,15 +16,15 @@ struct Color
 const Color colorDB[] =
 {
   {"Red",     56,   255, 180},
-  {"Green",   255,  144, 210},
-  {"Blue",    244,  255, 147},
+  {"Green",   255,  144, 255},
+  {"Blue",    255,  170, 120},
   {"Yellow",  70,   115, 255},
   {"Cyan",    255,  195, 124},
   {"Magenta", 222,  255, 123},
-  {"White",   255,  255, 205},
+  {"White",   255,  250, 205},
   {"Black",   255,  250, 190},
   {"Gray",    255,  240, 198},
-  {"Orange",  88,   160, 255},
+  {"Orange",  88,   170, 255},
   {"Pink",    100,  255, 195},
 };
 const int colorDBSize = sizeof(colorDB) / sizeof(colorDB[0]);
