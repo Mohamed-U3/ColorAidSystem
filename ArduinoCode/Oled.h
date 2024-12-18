@@ -1,39 +1,124 @@
 #ifndef OLED_H
 #define OLED_H
 
+#include <U8g2lib.h>
 #include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
 
-#define SCREEN_WIDTH 128 // OLED display width, in pixels
-#define SCREEN_HEIGHT 64 // OLED display height, in pixels
+U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 
-// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
-// The pins for I2C are defined by the Wire-library. 
-// On an arduino UNO:       A4(SDA), A5(SCL)
-#define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
-#define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire);
-
-void setupOled()
+void setupOLED()
 {
-  // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally or SSD1306_EXTERNALVCC
-  while(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS))
-  {
-    Serial.println(F("SSD1306 allocation failed"));
-    delay(100);
-    //for(;;); // Don't proceed, loop forever
-  }
-
-  // Show initial display buffer contents on the screen --
-  // the library initializes this with an Adafruit splash screen.
-  display.clearDisplay();
-  display.display();
-  delay(10); // Pause for 2 seconds
+  u8g2.begin();
+}
+void displayTestMessage()
+{
+  u8g2.firstPage();                           // Start the first page
+  do{
+    // Draw text on the display
+    u8g2.setFont(u8g2_font_6x10_tr);       // Set a built-in font
+    u8g2.drawStr(0, 10, "Hello, World!");     // Draw a string at x=0, y=10
+    u8g2.drawStr(0, 30, "u8g2_font_6x10_tr");   // Another string at x=0, y=30
+    u8g2.drawStr(0, 50, "Page Buffer Mode");  // Another string at x=0, y=50
+  }while (u8g2.nextPage());                   // Render the page and prepare for the next one
+}
+void displayTestMessage2()
+{
+  u8g2.firstPage();                           // Start the first page
+  do{
+    // Draw text on the display
+    u8g2.setFont(u8g2_font_t0_11_tr );       // Set a built-in font
+    u8g2.drawStr(0, 10, "Hello, World!");     // Draw a string at x=0, y=10
+    u8g2.drawStr(0, 30, "u8g2_font_t0_11_tr");   // Another string at x=0, y=30
+    u8g2.drawStr(0, 50, "Page Buffer Mode");  // Another string at x=0, y=50
+  }while (u8g2.nextPage());                   // Render the page and prepare for the next one
+}
+void displayTestMessage3()
+{
+  u8g2.firstPage();                           // Start the first page
+  do{
+    // Draw text on the display
+    u8g2.setFont(u8g2_font_micro_tr);       // Set a built-in font
+    u8g2.drawStr(0, 10, "Hello, World!");     // Draw a string at x=0, y=10
+    u8g2.drawStr(0, 30, "u8g2_font_micro_tr");   // Another string at x=0, y=30
+    u8g2.drawStr(0, 50, "Page Buffer Mode");  // Another string at x=0, y=50
+  }while (u8g2.nextPage());                   // Render the page and prepare for the next one
 }
 
-void loopOled()
+void displayTestMessage4()
 {
+  u8g2.firstPage();                           // Start the first page
+  do{
+    // Draw text on the display
+    u8g2.setFont(u8g2_font_ncenB08_tr);       // Set a built-in font
+    u8g2.drawStr(0, 10, "Hello, World!");     // Draw a string at x=0, y=10
+    u8g2.drawStr(0, 30, "u8g2_font_ncenB08_tr");   // Another string at x=0, y=30
+    u8g2.drawStr(0, 50, "Page Buffer Mode");  // Another string at x=0, y=50
+  }while (u8g2.nextPage());                   // Render the page and prepare for the next one
+}
+void displayTestMessage5()
+{
+  u8g2.firstPage();                           // Start the first page
+  do{
+    // Draw text on the display
+    u8g2.setFont(u8g2_font_helvR08_tr);       // Set a built-in font
+    u8g2.drawStr(0, 10, "Hello, World!");     // Draw a string at x=0, y=10
+    u8g2.drawStr(0, 30, "u8g2_font_helvR08_tr");   // Another string at x=0, y=30
+    u8g2.drawStr(0, 50, "Page Buffer Mode");  // Another string at x=0, y=50
+  }while (u8g2.nextPage());                   // Render the page and prepare for the next one
+}
+void displayTestMessage6()
+{
+  u8g2.firstPage();                           // Start the first page
+  do{
+    // Draw text on the display
+    u8g2.setFont(u8g2_font_courB08_tr);       // Set a built-in font
+    u8g2.drawStr(0, 10, "Hello, World!");     // Draw a string at x=0, y=10
+    u8g2.drawStr(0, 30, "u8g2_font_courB08_tr");   // Another string at x=0, y=30
+    u8g2.drawStr(0, 50, "Page Buffer Mode");  // Another string at x=0, y=50
+  }while (u8g2.nextPage());                   // Render the page and prepare for the next one
+}
+
+void displayTestMessage7()
+{
+  u8g2.firstPage();                           // Start the first page
+  do{
+    // Draw text on the display
+    u8g2.setFont(u8g2_font_fur11_tr);       // Set a built-in font
+    u8g2.drawStr(0, 10, "Hello, World!");     // Draw a string at x=0, y=10
+    u8g2.drawStr(0, 30, "u8g2_font_fur11_tr");   // Another string at x=0, y=30
+    u8g2.drawStr(0, 50, "Page Buffer Mode");  // Another string at x=0, y=50
+  }while (u8g2.nextPage());                   // Render the page and prepare for the next one
+}
+void displayTestMessage8()
+{
+  u8g2.firstPage();                           // Start the first page
+  do{
+    // Draw text on the display
+    u8g2.setFont(u8g2_font_osb18_tr);       // Set a built-in font
+    u8g2.drawStr(0, 10, "Hello, World!");     // Draw a string at x=0, y=10
+    u8g2.drawStr(0, 30, "u8g2_font_osb18_tr");   // Another string at x=0, y=30
+    u8g2.drawStr(0, 50, "Page Buffer Mode");  // Another string at x=0, y=50
+  }while (u8g2.nextPage());                   // Render the page and prepare for the next one
+}
+
+void loopOLED(void) {
+  
+  displayTestMessage();
+  delay(1000);
+  displayTestMessage2();
+  delay(1000);
+  displayTestMessage3();
+  delay(1000);
+  displayTestMessage4();
+  delay(1000);
+  displayTestMessage5();
+  delay(1000);
+  displayTestMessage6();
+  delay(1000);
+  displayTestMessage7();
+  delay(1000);
+  displayTestMessage8();
+  delay(1000);
   
 }
 

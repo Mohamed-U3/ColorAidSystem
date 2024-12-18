@@ -8,6 +8,7 @@
 */
 #include "PinConfig.h"
 #include "Buttons.h"
+#include "Oled.h"
 #include "Global.h"
 
 /*

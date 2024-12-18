@@ -92,13 +92,13 @@ const char* loopColorDetector()
   const char* colorName = findClosestColor(red, green, blue);
 
   // Print the result
-  Serial.print("Red: ");
+  Serial.print(F("Red: "));
   Serial.print(red);
-  Serial.print(", Green: ");
+  Serial.print(F(", Green: "));
   Serial.print(green);
-  Serial.print(", Blue: ");
+  Serial.print(F(", Blue: "));
   Serial.print(blue);
-  Serial.print(" -> Detected Color: ");
+  Serial.print(F(" -> Detected Color: "));
   Serial.println(colorName);
 
   COLOR_NAME_VARIABLE = colorName;

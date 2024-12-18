@@ -1,6 +1,9 @@
 #ifndef PINCONFIG_H
 #define PINCONFIG_H
 
+// Pin definitions for DFplayer mini (audio player)
+#define AUDIO_RX    2
+#define AUDIO_TX    3
 // Pin definitions for color sensor
 #define S0    4
 #define S1    5
