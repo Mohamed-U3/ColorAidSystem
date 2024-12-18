@@ -3,6 +3,9 @@
 
 #include <math.h>
 #include "PinConfig.h"
+#include "Global.h"
+
+#define COLOR_NAME_VARIABLE Global_Color_Name
 
 struct Color
 {
@@ -98,6 +101,7 @@ const char* loopColorDetector()
   Serial.print(" -> Detected Color: ");
   Serial.println(colorName);
 
+  COLOR_NAME_VARIABLE = colorName;
   return colorName;
 }
 
