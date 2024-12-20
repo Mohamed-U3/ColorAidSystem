@@ -3,4 +3,4 @@ A compact and user-friendly system designed to assist color-blind individuals in
 
 ## Circuit
 
-![Circuit](img\circuit.png)
+![Circuit](img/circuit.png)
