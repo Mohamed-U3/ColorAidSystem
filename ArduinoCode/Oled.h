@@ -6,6 +6,8 @@
 #include "Global.h"
 
 #define COLOR_NAME_VARIABLE     Global_Color_Name
+#define VOLUME_LEVEL            Global_Volume
+#define SELECTED_MODE           Global_Selected_Mode
 
 U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 
@@ -71,6 +73,10 @@ void setupOLED()
 //}
 void displayTestMessage6()
 {
+  // Convert the integer to a string
+  char buffer[10];
+  snprintf(buffer, sizeof(buffer), "%d", VOLUME_LEVEL);
+  
   u8g2.firstPage();                           // Start the first page
   do{
     // Draw text on the display
@@ -82,9 +88,18 @@ void displayTestMessage6()
     
     u8g2.setDrawColor(1);                     // Set drawing color to black
     u8g2.setFont(u8g2_font_courB14_tr);       // Set a built-in font
-    u8g2.drawStr(25, 40, COLOR_NAME_VARIABLE); // Another string at x=0, y=30
+    u8g2.drawStr(25, 40, COLOR_NAME_VARIABLE); // Another string at x=25, y=40
     u8g2.setFont(u8g2_font_courB08_tr);       // Set a built-in font
-    u8g2.drawStr(0, 60, "Page Buffer Mode");  // Another string at x=0, y=50
+    u8g2.drawStr(0, 60, "Volume: ");          // Another string at x=0, y=60
+    u8g2.drawStr(42, 60, buffer);             // Another string at x=42, y=60
+    if(SELECTED_MODE == VOICE_MODE)
+    {
+      u8g2.drawStr(60, 60, "- Voice");
+    }
+    else
+    {
+      u8g2.drawStr(60, 60, "- Vibration");
+    }
   }while (u8g2.nextPage());                   // Render the page and prepare for the next one
 }
 //

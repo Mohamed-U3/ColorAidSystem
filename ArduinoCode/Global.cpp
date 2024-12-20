@@ -20,3 +20,5 @@
  */
 // Declearation of variabes
 const char* Global_Color_Name;
+unsigned char Global_Volume;
+unsigned char Global_Selected_Mode = VOICE_MODE;

@@ -15,5 +15,7 @@
 #define LEFT_BUTTON_PIN     10
 #define RIGHT_BUTTON_PIN    11
 #define UP_BUTTON_PIN       12
+// Pin definitions for Vibration
+#define VIBRATION_PIN       A0
 
 #endif//PINCONFIG_H
