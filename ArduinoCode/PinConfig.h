@@ -4,7 +4,7 @@
 // Pin definitions for DFplayer mini (audio player)
 #define AUDIO_RX    2
 #define AUDIO_TX    3
-// Pin definitions for color sensor
+// Pin definitions for color sensor TCS3200
 #define S0    4
 #define S1    5
 #define S2    6
